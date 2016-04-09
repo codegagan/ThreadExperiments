@@ -19,6 +19,7 @@ public class ThreadSequence {
 }
 
 class Sequence implements Runnable {
+    //Object lock = new Object();
     static volatile int turn = 1;
     static volatile int counter = 1;
 
@@ -27,25 +28,31 @@ class Sequence implements Runnable {
     public void run() {
         String threadName = Thread.currentThread().getName();
         while (true) {
-
+//synchronized (lock) {
             if (threadName.equals("T1") && turn == 1) {
+
                 System.out.println(threadName + ": " + counter);
 
                 turn = 2;
+                counter++;
+                Thread.yield();
 
             } else if (threadName.equals("T2") && turn == 2) {
                 System.out.println(threadName + ": " + counter);
 
                 turn = 3;
+                counter++;
+                Thread.yield();
 
             } else if (threadName.equals("T3") && turn == 3) {
                 System.out.println(threadName + ": " + counter);
 
                 turn = 1;
+                counter++;
+                Thread.yield();
 
             }
-            counter++;
-            Thread.yield();
+//}
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
