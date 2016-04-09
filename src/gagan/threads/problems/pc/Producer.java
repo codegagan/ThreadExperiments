@@ -1,4 +1,4 @@
-package gagan.threads.pc;
+package gagan.threads.problems.pc;
 
 import java.util.Queue;
 
