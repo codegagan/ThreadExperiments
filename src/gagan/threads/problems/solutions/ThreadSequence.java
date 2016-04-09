@@ -30,20 +30,22 @@ class Sequence implements Runnable {
 
             if (threadName.equals("T1") && turn == 1) {
                 System.out.println(threadName + ": " + counter);
-                counter++;
+
                 turn = 2;
-                Thread.yield();
+
             } else if (threadName.equals("T2") && turn == 2) {
                 System.out.println(threadName + ": " + counter);
-                counter++;
+
                 turn = 3;
-                Thread.yield();
+
             } else if (threadName.equals("T3") && turn == 3) {
                 System.out.println(threadName + ": " + counter);
-                counter++;
+
                 turn = 1;
-                Thread.yield();
+
             }
+            counter++;
+            Thread.yield();
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
