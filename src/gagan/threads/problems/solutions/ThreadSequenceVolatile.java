@@ -3,7 +3,7 @@ package gagan.threads.problems.solutions;
 /**
  * Created by gagan on 10/4/16.
  */
-public class ThreadSequence {
+public class ThreadSequenceVolatile {
 
 
     public static void main(String... args) {
