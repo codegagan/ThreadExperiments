@@ -37,7 +37,7 @@ class Test implements Runnable {
         while (true) {
             try {
                 semaphore.acquire();
-                if (i % totalThreads == 0) {//faulty logic
+                if (i % totalThreads == 0 || i == threadNo) {//faulty logic
                     System.out.println("Thread " + threadNo + " Printing " + i);
                     i++;
                 }
